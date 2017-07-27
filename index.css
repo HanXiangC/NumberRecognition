@@ -1,0 +1,42 @@
+.row{
+  padding-top:10%;
+}
+
+.intended{
+  text-align: center;
+}
+.actual{
+  text-align: center;
+}
+.currentSample{
+  text-align: center;
+}
+.totalSamples{
+  text-align: center;
+}
+
+.activate{
+  text-align: center;
+}
+.beginTraining{
+  text-align: center;
+}
+.testingInput{
+  text-align: center;
+}
+.test{
+  text-align: center;
+}
+.indicator{
+  text-align: center;
+
+}
+
+
+
+*{font-family:sans-serif;}
+
+#eraser { display: block; text-align:center}
+
+#submission {border: 1px solid black; background : white; margin-left: auto; margin-right: auto; display: block;}
+#paint {border: 1px solid black; background : black; margin-left: auto; margin-right: auto; display: block;}

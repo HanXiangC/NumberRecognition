@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>XOR NN</title>
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <!-- Local style -->
+    <link href="index.css" rel="stylesheet" media="screen">
+
+  </head>
+
+  <body>
+
+    <div class="container">
+
+      <div class="row" id="testingPanel">
+
+        <div class="col-md-4">
+          <div id="sketch">
+            <canvas id="paint"></canvas>
+            <canvas id="submission"></canvas>
+          </div>
+
+
+          <div id="eraser">
+            <button onclick="clearCanvas()">Reset</button>
+            <button onclick="loadDrawing()">Load</button>
+            <button onclick="testDrawing()">Test</button>
+          </div>
+
+          <input id="imageUpload" type="file" multiple onchange="prepareFiles()">
+          <input id="imageType" type="text">
+          <button onclick="shuffleTrainingImages()">Shuffle Before Training</button>
+          <input id="imageUpload2" type="file" multiple onchange="testUpload()">
+
+        </div>
+        <div class="col-md-4 indicator" id="currentOutput">
+            Final Result Indicator
+        </div>
+        <div class="col-md-4 indicator" id="intended">
+            Training Status Indicator
+        </div>
+
+      </div>
+
+      <div class="row" id="controlPanel">
+        <div class="col-md-3 activate">
+          <button class="activationButton" id="activationButton" onclick="activate()">Activate NN</button>
+        </div>
+        <div class="col-md-3 beginTraining">
+          <button class="activationButton" id="activationButton" onclick="train()">Begin Training</button>
+        </div>
+        <div class="col-md-3 testingInput">
+          <input type="text" id="testingInput1" onchange="test()" placeholder="Enter an array of true/false" />
+        </div>
+        <div class="col-md-3 test">
+          <button class="testButton" id="testButton" onclick="test()">Test Custom Input</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/4.1.5/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyBk1pdUth8RW3vW9HTWG2x2OluJmVJX0kE",
+        authDomain: "number-recognition-b8e4d.firebaseapp.com",
+        databaseURL: "https://number-recognition-b8e4d.firebaseio.com",
+        projectId: "number-recognition-b8e4d",
+        storageBucket: "",
+        messagingSenderId: "601706882646"
+      };
+      firebase.initializeApp(config);
+    </script>
+
+    <script src="main.js"></script>
+
+    <script src="./fileReader/fileReader.js"></script>
+    <script src="./fileReader/imageProcessing.js"></script>
+
+    <script src="./neuralNet/drawingPad/testingPad.js"></script>
+    <script src="./neuralNet/architect/NeuralNetwork.js"></script>
+    <script src="./neuralNet/layers/inputLayer.js"></script>
+    <script src="./neuralNet/layers/hiddenLayer.js"></script>
+    <script src="./neuralNet/layers/outputLayer.js"></script>
+    <script src="./neuralNet/neuron/inputNeuron.js"></script>
+    <script src="./neuralNet/neuron/hiddenNeuron.js"></script>
+    <script src="./neuralNet/neuron/outputNeuron.js"></script>
+    <script src="./neuralNet/neuron/neuronMathOperations.js"></script>
+    <script src="./neuralNet/synapse/synapse.js"></script>
+    <script src="./neuralNet/trainer/XORTrainingGenerator.js"></script>
+    <script src="./neuralNet/trainer/alphabetTrainer.js"></script>
+
+  </body>
+
+</html>
