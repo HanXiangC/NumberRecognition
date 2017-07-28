@@ -1,3 +1,4 @@
+
 class NeuralNet {
 
   constructor(type) {
@@ -22,12 +23,11 @@ class NeuralNet {
 
   }
 
+
   activateNetwork(){
     this.generateNetwork();
 
   }
-
-  /* Forward propagation halts at production of final output */
 
   feedForwardCycle(){
     this.layers[0].dispatchInputsForward();
@@ -53,7 +53,6 @@ class NeuralNet {
       this.generateInputLayer(576);
       this.generateHiddenLayer(104);
       this.generateOutputLayer(10);
-
 
     this.generateConnections();
   }
@@ -93,4 +92,5 @@ class NeuralNet {
     this.layers[2] = outputLayer;
 
   }
+
 }

@@ -2,6 +2,7 @@ class HiddenLayer {
 
   constructor() {
 
+
     /* These do nothing more than assign numbers of nodes per layer */
     this.neurons = [];
 
@@ -15,11 +16,15 @@ class HiddenLayer {
     }
   }
 
+  /* This generates forward connections */
+
   generateConnections(){
     for(var i = 0; i < this.neurons.length; i++){
       this.neurons[i].generateForwardSynapses(i);
     }
   }
+
+/* This sends activation signals to the output layer after clearing all existing inputs */
 
   dispatchSignalForward(){
 
@@ -34,12 +39,16 @@ class HiddenLayer {
     }
   }
 
+/* This clears all existing inputs in the output layer */
+
   clearAllInputsOutputLayer(){
     for(var i = 0; i < neuralNet.layers[2].neurons.length; i++){
       neuralNet.layers[2].neurons[i].receivedInputs = [];
       neuralNet.layers[2].neurons[i].receivedWeights = [];
     }
   }
+
+/* This dispatches errors to the input layer */
 
   dispatchErrorBackward(){
 
@@ -49,6 +58,8 @@ class HiddenLayer {
       this.neurons[i].dispatchErrorBackward();
     }
   }
+
+  /* This clears all existing errors in the input layer */
 
   clearAllErrorsInputLayer(){
     for(var i = 0; i < neuralNet.layers[0].neurons.length; i++){

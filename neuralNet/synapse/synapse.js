@@ -1,7 +1,6 @@
 class Synapse {
 
   constructor() {
-
     this.weighting = this.randomizePositivity();
   }
 

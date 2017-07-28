@@ -13,9 +13,17 @@ class HiddenNeuron {
     this.receivedErrors = [];
     this.receivedWeightsError = [];
 
+
     this.learningRate = 0.06;
 
   }
+
+
+
+  /* This function generates forward synapses connecting to all of the neurons in the next layer,
+      and then pushes them into this neurons forward synapses array, as well as into the other neurons'
+      back synapses array */
+
 
   generateForwardSynapses(neuronKey){
 
@@ -34,6 +42,7 @@ class HiddenNeuron {
       }
       this.forwardSynapses.push(newForwardSynapse);
 
+
       var originAddress = {
         originLayer: 1,
         originNeuron: neuronKey
@@ -42,6 +51,7 @@ class HiddenNeuron {
       neuralNet.layers[2].neurons[i].backwardSynapses.push(originAddress);
     }
   }
+
 
   dispatchSignalForward(){
     var forwardSignal = this.processSignalForward();
@@ -52,6 +62,10 @@ class HiddenNeuron {
   }
 
 
+  /* This function sums all weights and inputs, and runs it through the sigmoid, finally returning
+     the activation function */
+
+
   processSignalForward(){
     var Z = this.calculateZ();
     var A = sigmoidFunction(Z);
@@ -59,6 +73,9 @@ class HiddenNeuron {
   // console.log(A);
     return A;
   }
+
+
+  /* This function sums all weights and inputs */
 
   calculateZ(){
     var sum = sumWeightsAndInputs(this.receivedInputs, this.receivedWeights);
@@ -68,6 +85,7 @@ class HiddenNeuron {
     return sum;
   }
 
+
   dispatchErrorBackward(){
     var error = this.produceError();
   //  console.log(error);
@@ -75,6 +93,7 @@ class HiddenNeuron {
     this.adjustWeighting();
     for(var i = 0; i < this.backwardSynapses.length; i++){
       neuralNet.layers[0].neurons[this.backwardSynapses[i].originNeuron].receivedErrors.push(error);
+
     }
   }
 

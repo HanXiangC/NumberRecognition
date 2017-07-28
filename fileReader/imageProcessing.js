@@ -19,8 +19,13 @@ function submitToProcessing(dataURL, sendToNeuralNetTraining){
   image.onload = function(){
     ctx2.drawImage(image, 0, 0);
 
+<<<<<<< HEAD
     var data = ctx2.getImageData(2, 2, 24, 24);
     console.log(dataURL);
+=======
+    var data = ctx2.getImageData(0, 0, 28, 28);
+    console.log(data);
+>>>>>>> 02bb9320f2bb90a04e7f25105e95e3865d98902b
     var pixelDensity = [];
 
     for(var i = 0; i < data.data.length; i++){
@@ -54,13 +59,10 @@ function submitToProcessing2(dataURL, sendToNeuralNet){
     ctx2.drawImage(image, 0, 0);
 
     var data = ctx2.getImageData(2, 2, 24, 24);
-
     var pixelDensity = [];
 
     for(var i = 0; i < data.data.length; i++){
       if((i + 1) % 4 == 0){
-      //  console.log(data.data);
-
         var pixelDensityFloat = ((255 - data.data[i - 1]) / 255.0);
         if(data.data[i - 1] == 0){
           pixelDensity.push(0);
@@ -73,7 +75,6 @@ function submitToProcessing2(dataURL, sendToNeuralNet){
         */
       }
     }
-  //  console.log(pixelDensity);
     sendToNeuralNet(pixelDensity);
   };
 

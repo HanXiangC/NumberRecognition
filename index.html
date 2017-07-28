@@ -28,11 +28,14 @@
             <button onclick="loadDrawing()">Load</button>
             <button onclick="testDrawing()">Test</button>
             <button onclick="clearImages()">Clear Training Images</button>
+
           </div>
 
           <input id="imageUpload" type="file" multiple onchange="prepareFiles()">
           <input id="imageType" type="text">
           <button onclick="shuffleTrainingImages()">Shuffle Before Training</button>
+          <input id="imageUpload2" type="file" multiple onchange="testUpload()">
+
 
         </div>
         <div class="col-md-4 indicator" id="currentOutput">
@@ -84,7 +87,6 @@
 
     <script src="./neuralNet/architect/NeuralNetwork.js"></script>
     <script src="./neuralNet/trainingRoutines/imagingTrainer.js"></script>
-
     <script src="./neuralNet/layers/inputLayer.js"></script>
     <script src="./neuralNet/layers/hiddenLayer.js"></script>
     <script src="./neuralNet/layers/outputLayer.js"></script>

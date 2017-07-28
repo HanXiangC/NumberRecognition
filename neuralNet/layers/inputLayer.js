@@ -2,10 +2,12 @@ class InputLayer {
 
   constructor() {
 
-    /* These do nothing more than assign numbers of nodes per layer */
+    /* This array holds all the nodes */
     this.neurons = [];
 
   }
+
+  /* This populates the neurons array with specialized neurons */
 
   generateNeurons(layerSize){
 
@@ -15,11 +17,15 @@ class InputLayer {
     }
   }
 
+  /* This generates forward connections */
+
   generateConnections(){
     for(var i = 0; i < this.neurons.length; i++){
       this.neurons[i].generateForwardSynapses(i);
     }
   }
+
+/* This sends received inputs to the hidden layer after clearing all existing inputs */
 
   dispatchInputsForward(){
 
@@ -33,6 +39,8 @@ class InputLayer {
     }
   }
 
+/* This clears all existing inputs in the hidden layer*/
+
   clearAllInputsHiddenLayer(){
     for(var i = 0; i < neuralNet.layers[1].neurons.length; i++){
       neuralNet.layers[1].neurons[i].receivedInputs = [];
@@ -40,9 +48,11 @@ class InputLayer {
     }
   }
 
+
   processErrorsAndReset(){
     for(var i = 0; i < this.neurons.length; i++){
       this.neurons[i].processErrors();
+
     }
   }
 

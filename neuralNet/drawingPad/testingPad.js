@@ -47,7 +47,7 @@ function submitCanvas(sendToNeuralNet){
     ctx.drawImage(image, 0, 0);
 
     var data = ctx.getImageData(2, 2, 24, 24);
-
+    
     var pixelDensity = [];
 
     for(var i = 0; i < data.data.length; i++){

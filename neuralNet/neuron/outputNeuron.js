@@ -64,5 +64,4 @@ class OutputNeuron {
     return this.finalOutput - this.targetOutput;
   }
 
-
 }

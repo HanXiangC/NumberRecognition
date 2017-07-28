@@ -9,7 +9,12 @@ class InputNeuron {
     this.receivedErrors = [];
     this.receivedWeightsError = [];
 
+
     this.learningRate = 0.06;
+  }
+
+
+    this.learningRate = 0.05;
   }
 
   generateForwardSynapses(neuronKey){
@@ -43,6 +48,7 @@ class InputNeuron {
     }
   }
 
+
   processErrors(){
     this.adjustWeighting();
   }
@@ -54,6 +60,7 @@ class InputNeuron {
     }
 
   }
+
 
   calculateErrorSum(){
     var errorSum = sumWeightsAndInputs(this.receivedErrors, this.receivedWeightsError);
