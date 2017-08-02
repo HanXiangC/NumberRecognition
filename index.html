@@ -8,78 +8,112 @@
     <!-- Local style -->
     <link href="index.css" rel="stylesheet" media="screen">
 
+    <link href="https://fonts.googleapis.com/css?family=Poppins|Signika" rel="stylesheet">
+
   </head>
 
   <body>
 
     <div class="container">
 
-      <div class="row" id="testingPanel">
+      <div class="row headerRow">
+            neuralNetwork
+      </div>
+
+      <div class="col-sm-12 sketchHeader">
+        Draw a Number, Load it, and Test it!
+      </div>
+
+      <div class="row" id="mainPanel">
+
+        <div class="col-md-2 testingPanel">
+            <div class="col-sm-12 panelHeader">
+              Test by Hand
+            </div>
+            <div class="col-xs-12 testingButton">
+              <button onclick="clearCanvas()" class= "btn btn-warning">Reset</button>
+            </div>
+            <div class="col-xs-12 testingButton">
+              <button onclick="loadDrawing()" class= "btn btn-warning">Load</button>
+            </div>
+            <div class="col-xs-12 testingButton">
+              <button onclick="testDrawing()" class= "btn btn-warning">Test</button>
+            </div>
+            <div class="col-sm-12 panelHeader">
+              Test with an Image
+            </div>
+            <div class="col-xs-12 testUploadedImage">
+              <input id="imageUpload2" class="fileUpload" type="file" multiple onchange="testUpload()">
+            </div>
+            <div class="col-xs-12 testingButton">
+              <button class="testButton btn btn-warning" id="testButton" onclick="testDrawing()">Submit</button>
+            </div>
+
+        </div>
+
 
         <div class="col-md-4">
           <div id="sketch">
             <canvas id="paint"></canvas>
-            <canvas id="submission"></canvas>
           </div>
+        </div>
 
-
-          <div id="eraser">
-            <button onclick="clearCanvas()">Reset</button>
-            <button onclick="loadDrawing()">Load</button>
-            <button onclick="testDrawing()">Test</button>
-            <button onclick="clearImages()">Clear Training Images</button>
-
+        <div class="col-md-4 indicator" id="testOutput">
+          <div class="col-sm-12 outputIndicator" id="testOutputIndicator">
+            N
           </div>
-
-          <input id="imageUpload" type="file" multiple onchange="prepareFiles()">
-          <input id="imageType" type="text">
-          <button onclick="shuffleTrainingImages()">Shuffle Before Training</button>
-          <input id="imageUpload2" type="file" multiple onchange="testUpload()">
-
-
-        </div>
-        <div class="col-md-4 indicator" id="currentOutput">
-            Final Result Indicator
-        </div>
-        <div class="col-md-4 indicator" id="intended">
-            Training Status Indicator
         </div>
 
+        <div class="col-md-2 trainingPanel trainingButton">
+          <div class="col-sm-12 panelHeader">
+            Train the Network
+          </div>
+          <div class="col-sm-12 activate trainingButton">
+            <button class="btn btn-warning" id="activationButton" onclick="activateImages()">Activate</button>
+          </div>
+          <div class="col-sm-12 specifyNumber trainingButton">
+            <input id="trainingImageType" type="text" placeholder="Specify Your Number">
+          </div>
+          <div class="col-sm-12 uploadTraining trainingButton">
+            <input id="trainingImageUpload" type="file" class="fileUpload" multiple onchange="prepareFiles()">
+          </div>
+          <div class="col-sm-12 shuffleTrainingImages trainingButton">
+            <button onclick="shuffleTrainingImages()" class= "btn btn-warning">Shuffle</button>
+          </div>
+          <div class="col-sm-12 beginTraining trainingButton">
+            <button class="btn btn-warning" id="trainingButton" onclick="trainImages()">Train</button>
+          </div>
+          <div class="col-xs-12 testingButton">
+            <button onclick="clearImages()" class= "btn btn-warning">Clear</button>
+          </div>
+        </div>
+
+        <div class="col-sm-12 currentUploadedImage">
+          <canvas id="submission"></canvas>
+        </div>
       </div>
 
-      <div class="row" id="controlPanelImaging">
 
-        <div class="col-md-3 activate">
-          Imaging Tests
-          <button class="activationButton" id="activationButton" onclick="activateImages()">Activate NN Images</button>
+    <div class="row headerRow">
+        geneticAlgorithm
+    </div>
+
+    <div class="col-md-12 geneticAlgorithm">
+        <div class="col-md-6 targetEntryContainer">
+          <input id="GAInput" type="text" placeholder="Enter a Target String">
+          <button onclick="runGeneticAlgorithm()" class= "btn btn-warning">Submit</button>
         </div>
-        <div class="col-md-3 beginTraining">
-          <button class="activationButton" id="activationButton" onclick="trainImages()">Begin Training (Images)</button>
-        </div>
-        <div class="col-md-3 testingInput">
-          <input id="imageUpload2" type="file" multiple onchange="testUpload()">
-        </div>
-        <div class="col-md-3 test">
-          <button class="testButton" id="testButton" onclick="testDrawing()">Test Custom Image</button>
+      <div class="col-md-6 resultConsoleContainer">
+        <div class= "resultConsole" id="result">
         </div>
       </div>
     </div>
 
     <script src="https://www.gstatic.com/firebasejs/4.1.5/firebase.js"></script>
-    <script>
-      // Initialize Firebase
-      var config = {
-        apiKey: "AIzaSyBk1pdUth8RW3vW9HTWG2x2OluJmVJX0kE",
-        authDomain: "number-recognition-b8e4d.firebaseapp.com",
-        databaseURL: "https://number-recognition-b8e4d.firebaseio.com",
-        projectId: "number-recognition-b8e4d",
-        storageBucket: "",
-        messagingSenderId: "601706882646"
-      };
-      firebase.initializeApp(config);
-    </script>
 
     <script src="main.js"></script>
+
+    <script src="./geneticAlgorithm/BabbysFirstGeneticAlgorithm.js"></script>
 
     <script src="./fileReader/fileReader.js"></script>
     <script src="./fileReader/imageProcessing.js"></script>

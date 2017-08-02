@@ -64,7 +64,7 @@ class ImagingTrainer {
      onscreen. */
 
   displayCurrentOutput(input) {
-    var intendedBlock = document.getElementById('currentOutput');
+    var intendedBlock = document.getElementById('testOutputIndicator');
     intendedBlock.innerHTML = "";
     intendedBlock.append(input);
   }

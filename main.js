@@ -2,6 +2,7 @@
 var neuralNet = {};
 var imagingTrainer = {};
 
+
 activateImages = () => {
 
   neuralNet = new NeuralNet("images");
@@ -12,7 +13,6 @@ activateImages = () => {
   console.log(neuralNet);
 
 }
-
 
 trainImages = () => {
   imagingTrainer.trainNetwork();
@@ -46,4 +46,9 @@ testUpload = () => {
 
 shuffleTrainingImages = () => {
   imagingTrainer.shuffleTrainingImages();
+}
+
+runGeneticAlgorithm = () => {
+  var targetString = document.getElementById('GAInput');
+  mutation(targetString.value);
 }

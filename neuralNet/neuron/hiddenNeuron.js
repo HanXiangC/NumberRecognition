@@ -14,7 +14,7 @@ class HiddenNeuron {
     this.receivedWeightsError = [];
 
 
-    this.learningRate = 0.06;
+    this.learningRate = 0.03;
 
   }
 

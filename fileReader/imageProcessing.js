@@ -18,14 +18,8 @@ function submitToProcessing(dataURL, sendToNeuralNetTraining){
 
   image.onload = function(){
     ctx2.drawImage(image, 0, 0);
-
-<<<<<<< HEAD
     var data = ctx2.getImageData(2, 2, 24, 24);
     console.log(dataURL);
-=======
-    var data = ctx2.getImageData(0, 0, 28, 28);
-    console.log(data);
->>>>>>> 02bb9320f2bb90a04e7f25105e95e3865d98902b
     var pixelDensity = [];
 
     for(var i = 0; i < data.data.length; i++){

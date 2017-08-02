@@ -10,11 +10,7 @@ class InputNeuron {
     this.receivedWeightsError = [];
 
 
-    this.learningRate = 0.06;
-  }
-
-
-    this.learningRate = 0.05;
+    this.learningRate = 0.03;
   }
 
   generateForwardSynapses(neuronKey){

@@ -12,7 +12,7 @@ class OutputNeuron {
     this.receivedInputs = [];
     this.receivedWeights = [];
 
-    this.learningRate = 0.06;
+    this.learningRate = 0.03;
 
   }
 

@@ -24,7 +24,7 @@ canvas.addEventListener('mousemove', function(e) {
 
 ctx.lineJoin = 'round';
 ctx.lineCap = 'round';
-ctx.lineWidth = 20;
+ctx.lineWidth = 18;
 ctx.strokeStyle = "white";
 
 /* This clears the testing pad */
@@ -47,7 +47,7 @@ function submitCanvas(sendToNeuralNet){
     ctx.drawImage(image, 0, 0);
 
     var data = ctx.getImageData(2, 2, 24, 24);
-    
+
     var pixelDensity = [];
 
     for(var i = 0; i < data.data.length; i++){
