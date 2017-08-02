@@ -9,7 +9,7 @@ class ImagingTrainer {
 /* This function is used to load pixel density arrays together with their intended outputs */
 
   sendToNeuralNetTraining(pixelDensity) {
-    var imageType = document.getElementById('imageType');
+    var imageType = document.getElementById('trainingImageType');
 
     var trainingOutput = [];
 
@@ -69,14 +69,6 @@ class ImagingTrainer {
     intendedBlock.append(input);
   }
 
-  displayTrainingStatus(current, total) {
-    var intendedBlock = document.getElementById('intended');
-    intendedBlock.innerHTML = "";
-
-    var status = "" + current + " / " + total;
-    intendedBlock.append(status);
-  }
-
   /* This function shuffles an array randomly. */
 
   shuffle(array) {
@@ -118,7 +110,6 @@ class ImagingTrainer {
       neuralNet.backpropagationCycle();
       console.log(this.findOutputNode());
       this.displayCurrentOutput(this.findOutputNode());
-      this.displayTrainingStatus(i, neuralNet.trainingImages.length);
     }
       console.log(neuralNet);
   }

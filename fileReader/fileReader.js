@@ -5,7 +5,7 @@ and sends it to image processsing for conversion into a pixel density array as a
 */
 
 processFiles = (sendToProcessing) => {
-  var fileInput = document.getElementById('imageUpload');
+  var fileInput = document.getElementById('trainingImageUpload');
 
   for (var i = 0; i < fileInput.files.length; i++) {
      var reader = new FileReader();

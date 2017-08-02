@@ -33,7 +33,7 @@ function submitToProcessing(dataURL, sendToNeuralNetTraining){
       }
     }
     //console.log(pixelDensity);
-    sendToNeuralNetTraining(pixelDensity);
+    imagingTrainer.sendToNeuralNetTraining(pixelDensity);
   };
 
 }
